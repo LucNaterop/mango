@@ -3,10 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Icon } from 'native-base';
 import Datastore from 'react-native-local-mongodb';
 
-import AnzeigeTafel from './Tafel';
+import Abfahrtstafel from './Abfahrtstafel';
 import AddStation from './AddStation';
 
-export default class Tafel extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     var that = this;
@@ -20,7 +20,7 @@ export default class Tafel extends React.Component {
   }
 
   render() {
-    var tafeln = this.state.stations.map((station) => <AnzeigeTafel name={station.name} key={station._id}/>)
+    var tafeln = this.state.stations.map((station) => <Abfahrtstafel name={station.name} key={station._id}/>)
     return (
       <Container>
         <Header>
