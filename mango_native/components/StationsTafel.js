@@ -10,7 +10,7 @@ export default class StationsTafel extends React.Component {
 			'padding': 10,
 			'marginLeft': 10,
 			'marginRight': 10,
-			'shadowRadius': 3,
+			'shadowRadius': 2,
 			'shadowOpacity': 0.7,
 			'shadowOffset': {'width': 0, 'height': 0}
 		}

@@ -9,9 +9,11 @@
   "dependencies": {
     "native-base": "^0.5.21",
     "react": "15.4.2",
-    "react-native": "0.40.0",
+    "react-native": "^0.41.2",
     "react-native-easy-grid": "^0.1.8",
-    "react-native-local-mongodb": "^1.8.2"
+    "react-native-local-mongodb": "^1.8.2",
+    "react-native-search-bar": "^3.0.0",
+    "react-native-vector-icons": "^4.0.0"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

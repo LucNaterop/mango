@@ -9,7 +9,6 @@ import Controls from './Controls.jsx';
 class App extends React.Component{
 	render(){
 		Stations = new LucDB('stations', true);
-		console.log(this.props);
 		var stations = Stations.get();
 		var tafeln = stations.map((station) => <Anzeigetafel key={station._id} station={station}/>)
 		return (
