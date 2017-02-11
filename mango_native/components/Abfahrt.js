@@ -9,7 +9,8 @@ export default class Abfahrt extends React.Component {
 			// get the symbol here that shows up at 0 mins
 			dt = '0';
 		}
-		var style= {'color': '#ffa556', 'fontSize': 18};
+		var style= {'color': '#ffa556', 'fontSize': 16};
+		var style1 = style;
 		return (
 			<Row>
 				<Col style={{'width': 30}} >

@@ -1,5 +1,5 @@
 import React from 'react';
-import {H1, Card, CardItem, Text} from 'native-base';
+import {H2, Card, CardItem, Text} from 'native-base';
 
 export default class StationsTafel extends React.Component {
 
@@ -15,7 +15,7 @@ export default class StationsTafel extends React.Component {
 			'shadowOffset': {'width': 0, 'height': 0}
 		}
 		return (
-            <H1 style={style}>{this.props.name}</H1>                       
+            <H2 style={style}>{this.props.name}</H2>                       
 		);
 	}
 }

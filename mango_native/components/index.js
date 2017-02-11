@@ -48,7 +48,7 @@ export default class App extends React.Component {
           renderScene={function(route, navigator){
             if(route.name == 'Abfahrten'){ 
               if(tafeln.length == 0){
-                var newText = <Text style={{'textAlign':'center', 'marginTop': 50, 'fontSize': 20}}>
+                var newText = <Text style={{'textAlign':'center', 'margin': 20, 'marginTop': 50, 'fontSize': 20}}>
                   Füge deine Stationen hinzu, indem du oben auf das kleine Plus drückst!
                   </Text>
               } 

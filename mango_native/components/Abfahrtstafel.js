@@ -87,7 +87,7 @@ export default class Abfahrtstafel extends React.Component {
 		
 		var style = {
 			'backgroundColor': '#331805',
-			'borderColor': '#e1e5e8',
+			'borderColor': '#ddd',
 			'borderTopWidth': 25,
 			'borderRightWidth': 5,
 			'borderBottomWidth': 25,
@@ -102,7 +102,7 @@ export default class Abfahrtstafel extends React.Component {
 
 		if(this.props.editing){ 
 			var deleteButton = (
-				<Button danger bordered onPress={that.onDelete.bind(this)} style={{alignSelf: 'center', 'marginTop': 20}}>
+				<Button danger bordered onPress={that.onDelete.bind(this)} style={{alignSelf: 'center'}}>
 					<Icon name='ios-trash-outline'/> Löschen
 				</Button>
 			);
@@ -111,18 +111,17 @@ export default class Abfahrtstafel extends React.Component {
 
 		return (
 			<View>
-				<Text style={{'textAlign': 'right', 'margin': 10, 'color': '#ccc'}}>aktualisiert vor {this.state.updated} s</Text>
+				<Text style={{'textAlign': 'right', 'marginRight': 10, 'marginTop': 20, 'color': '#ccc'}}>aktualisiert vor {this.state.updated}s</Text>
 				<StationsTafel name={this.props.name} />
 				<Grid style={style}>
 					{abfahrtList}
 					<Row></Row>
 					<Row></Row>
 	            </Grid>
-				{deleteButton}
-				<Button transparent style={{'alignSelf': 'center'}} onPress={this.onExpand.bind(this)}>
-					<Icon name='ios-arrow-down' />
+				<Button transparent style={{'alignSelf': 'center', 'marginTop': -27}} onPress={this.onExpand.bind(this)}>
+					<Icon name='ios-arrow-down' style={{'color':'#aaa'}}/>
 				</Button>
-
+				{deleteButton}
             </View>
 		)
 	}
