@@ -42,7 +42,7 @@ export default class StationTitle extends React.Component {
 
 var styles = StyleSheet.create({
   container: {
-  	backgroundColor: '#1b1464',
+  	backgroundColor: 'rgba(22,24,52,1.0)',
   	borderWidth: 3,
   	borderColor: '#fff',
   	borderRadius: 4,
@@ -52,7 +52,7 @@ var styles = StyleSheet.create({
   	width: '100%'
   },
   containerWithoutDistance: {
-  	backgroundColor: '#1b1464',
+  	backgroundColor: 'rgba(22,24,52,1.0)',
   	borderWidth: 3,
   	borderColor: '#fff',
   	borderRadius: 4,

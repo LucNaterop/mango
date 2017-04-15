@@ -17,27 +17,28 @@ export default class AddStationButton extends React.Component {
 	}
 	render(){
 		return (
-			<Icon.Button name="plus" style={styles.container} onPress={this.onAdd.bind(this)}>
-			</Icon.Button>
+      <View onPress={this.onAdd.bind(this)} style={styles.container}>
+  			<Icon.Button name="plus" color="rgba(227,66,53,1.0)" backgroundColor="transparent" size={50} onPress={this.onAdd.bind(this)} style={styles.icon}>
+  			</Icon.Button>
+      </View>
 		);
 	}
 }
 
 var styles = StyleSheet.create({
   container: {
-  	backgroundColor: '#1b1464',
+  	backgroundColor: 'rgba(22,24,52,1.0)',
   	borderWidth: 3,
   	borderColor: '#fff',
   	borderRadius: 4,
   	height: 60,
-  	padding: 5,
-  	paddingTop: 10,
+    paddingLeft: 0,
+    marginTop: 20,
   	width: '100%',
+    alignItems: 'flex-end'
   },
-  text: {
-  	textAlign: 'center',
-  	color: '#fff',
-  	fontSize: 20,
-  	fontWeight: '500',
+  icon: {
+    backgroundColor: 'transparent',
+    top: -8
   },
 })

@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StatusBar, StyleSheet} from 'react-native';
 import StationTitle from './StationTitle.js';
 import StationBoard from './StationBoard.js';
+import {Footer} from 'native-base';
 
 /*
 	props: {
@@ -18,9 +19,11 @@ export default class StationSlide extends React.Component {
 	}
 	render(){
 		return (
-			<View style={styles.slide}>
-				<StationTitle station={this.props.station} showDistance={true}/>
-				<StationBoard station={this.props.station}/>
+			<View style={{flex: 1}}>
+				<View style={styles.slide}>
+					<StationTitle station={this.props.station} showDistance={true}/>
+					<StationBoard station={this.props.station}/>
+				</View>
 			</View>
 
 		)
@@ -29,8 +32,9 @@ export default class StationSlide extends React.Component {
 
 var styles = StyleSheet.create({
   slide: {
-    flex: 1,
+    flex: 10,
     alignItems: 'center',
-    paddingTop: 10
+    paddingTop: 20,
+    padding: 3,
   },
 });

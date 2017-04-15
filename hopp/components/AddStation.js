@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, View} from 'react-native';
+import {View} from 'react-native';
 import {Container, List, ListItem, Button, InputGroup, Input, Icon, Text, Header, Item, Content} from 'native-base';
 import Datastore from 'react-native-local-mongodb';
 import Events from 'react-native-simple-events';
@@ -24,8 +24,11 @@ export default class AddStation extends React.Component {
 		var db = new Datastore({ filename: 'myStations', autoload: true });
 		db.insert({'name': station}, function(err, newDoc){
 			Events.trigger('databaseChanged');
-			setTimeout(() => {that.props.navigator.pop()}, 1000)
+			setTimeout(() => {that.props.navigator.pop()}, 100)
 		});
+	}
+	onCancel(){
+		this.props.navigator.pop();
 	}
 	render(){
 		var that = this;
@@ -39,17 +42,20 @@ export default class AddStation extends React.Component {
 			var ausgeblendetText = <Text style={{'margin': 10, 'color': '#ccc'}}>Einige Element sind ausgeblendet</Text>
 		}
 		return (
-			<Container>
-					<InputGroup>
-						<Icon name="ios-search" />
-						<Input
-							placeholder="Station suchen" 
-	                    	value={this.state.searchValue} 
-	                    	onChangeText={(text) => this.setState({'searchValue': text})} 
-						/>
-					</InputGroup>
+			<Container style={{backgroundColor: '#fff'}}>
+				<InputGroup>
+					<Icon name="ios-search" />
+					<Input
+						placeholder="Station suchen" 
+                    	value={this.state.searchValue} 
+                    	onChangeText={(text) => this.setState({'searchValue': text})} 
+					/>
+                    <Button transparent onPress={that.onCancel.bind(that)}>
+                        <Text>Cancel</Text>
+                    </Button>
+				</InputGroup>
 				<Content>
-		            <List onEndReached={() => {alert('watup')}}>
+		            <List>
 		                {stationsList}
 		                {ausgeblendetText}
 		            </List>

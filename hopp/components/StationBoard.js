@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {Button,Icon,Spinner} from 'native-base';
+import {Button,Spinner} from 'native-base';
 import {Grid, Col, Row} from 'react-native-easy-grid';
 import Abfahrt from './Abfahrt.js';
 import Datastore from 'react-native-local-mongodb';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 /*
 	props: {
@@ -104,11 +105,11 @@ export default class StationBoard extends React.Component {
 
 		var style = {
 		  container: {
-		  	backgroundColor: '#1b1464',
+		  	backgroundColor: 'rgba(22,24,52,1.0)',
 		  	borderWidth: 3,
 		  	borderColor: '#fff',
 		  	width: '100%',
-		  	paddingTop: 30,
+		  	paddingTop: 20,
 		  	marginTop: 30,
 		  	opacity: that.state.loading ? 0.3 : 1
 		  }
@@ -116,13 +117,12 @@ export default class StationBoard extends React.Component {
 
 		return (
 			<View style={style.container}>
-				<View style={{borderBottomWidth: 0, borderColor: '#fff', paddingBottom: 5}}>
+				<View style={{paddingBottom: 5}}>
 					{abfahrtList}
 				</View>
 				{spinner}
-				<Button transparent style={{'alignSelf': 'center', height: 20}} onPress={this.onExpand.bind(this)}>
-					<Icon name='ios-arrow-down' style={{'color':'#fff'}}/>
-				</Button>
+				<Icon.Button style={{alignSelf: 'center'}} size={20} name="chevron-down" color="rgba(227,66,53,1.0)" backgroundColor="transparent" onPress={this.onExpand.bind(this)}>
+				</Icon.Button>
             </View>
 		)
 	}

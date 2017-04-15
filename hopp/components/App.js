@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navigator, TouchableHighlight, Text, View, StatusBar} from 'react-native';
+import {Navigator, TouchableHighlight, Text, View, StatusBar, StyleSheet} from 'react-native';
 import Slides from './Slides.js';
 import EditStations from './EditStations.js';
 import AddStation from './AddStation.js';
@@ -16,23 +16,17 @@ export default class App extends React.Component {
 			{name: 'addStation'}
 		];
 		return (
-			<View style={{flex: 1, paddingTop: 30, paddingLeft: 10, paddingRight: 10, 'backgroundColor': 'rgba(0, 0, 0, 0.8)'}} >
-				<View style={{'backgroundColor': '#fff', flex: 1}}>
-
+			<View style={{flex: 1,'backgroundColor': 'rgba(0, 0, 0, 0.8)'}} >
+				<View style={{flex: 1,'backgroundColor': 'rgba(30, 30, 30, 0.6)'}} />
+				<View style={styles.mainContainer}>
 					<StatusBar barStyle="light-content"/>
 					<Navigator 
 						initialRoute={routes[0]}
 						initialRouteStack={routes}
 						renderScene={(route, navigator) => {
-							if(route.name == 'slides') return (
-								<Slides navigator={navigator} />
-							);
-							if(route.name == 'editStations') return (
-								<EditStations navigator={navigator} />
-							);
-							if(route.name == 'addStation') return (
-								<AddStation navigator={navigator}/>
-							);
+							if(route.name == 'slides') return <Slides navigator={navigator} /> ;
+							if(route.name == 'editStations') return <EditStations navigator={navigator} />;
+							if(route.name == 'addStation') return <AddStation navigator={navigator}/>;
 						}}
 						configureScene={(route, routeStack) => {
 							return Navigator.SceneConfigs.FloatFromBottom
@@ -43,3 +37,10 @@ export default class App extends React.Component {
 		);
 	}
 }
+
+var styles = StyleSheet.create({
+	mainContainer: {
+		flex: 15,
+		backgroundColor: 'rgba(163, 207, 246, 1.0)',
+	}
+})

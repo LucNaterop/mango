@@ -1,6 +1,6 @@
 import React from 'react';
 import Datastore from 'react-native-local-mongodb';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SwipeableEntry from './SwipeableEntry.js';
 import AddStationButton from './AddStationButton.js';
@@ -43,13 +43,13 @@ export default class EditStations extends React.Component {
 			<SwipeableEntry station={station} updateParent={that.update.bind(that)} key={station._id}/>
 		));
 		return (
-			<View style={{flex: 1}}>
-				<View style={{flex: 10}}>
+			<View style={{flex: 1, backgroundColor: 'rgba(163, 207, 246, 1.0)'}}>
+				<View style={{flex: 10, paddingTop: 20, padding: 3}}>
 					{myStations}
 					<AddStationButton navigator={that.props.navigator}/>
 				</View>
-				<View style={{'backgroundColor': 'rgba(0, 0, 0, 0.8)', flex: 1, padding: 10}}>
-					<Icon.Button name="chevron-down" backgroundColor="transparent" onPress={this.onPressBack.bind(this)}>
+				<View style={{'backgroundColor': 'rgba(0, 0, 0, 0.8)', flex: 1}}>
+					<Icon.Button style={{marginLeft: 10, marginTop: 4}} size={25} name="chevron-down" color="rgba(227,66,53,1.0)" backgroundColor="transparent" onPress={this.onPressBack.bind(this)}>
 					</Icon.Button>
 				</View>
 			</View>
@@ -65,7 +65,5 @@ export default class EditStations extends React.Component {
     	Events.rm('databaseChanged', 'editStationsListener');
     }
 }
-
-
 
 
