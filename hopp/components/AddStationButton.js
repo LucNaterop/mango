@@ -18,8 +18,15 @@ export default class AddStationButton extends React.Component {
 	render(){
 		return (
       <View onPress={this.onAdd.bind(this)} style={styles.container}>
-  			<Icon.Button name="plus" color="rgba(227,66,53,1.0)" backgroundColor="transparent" size={50} onPress={this.onAdd.bind(this)} style={styles.icon}>
-  			</Icon.Button>
+        <View>
+          <Text style={{color: '#fff', fontSize: 40, paddingLeft: 10, fontWeight: '600'}}>
+            ...
+          </Text>
+        </View>
+        <View style={{flex: 1, alignItems: 'flex-end'}}>
+    			<Icon.Button name="plus" color="rgba(227,66,53,1.0)" backgroundColor="transparent" size={50} onPress={this.onAdd.bind(this)} style={styles.icon}>
+    			</Icon.Button>
+        </View>
       </View>
 		);
 	}
@@ -35,7 +42,8 @@ var styles = StyleSheet.create({
     paddingLeft: 0,
     marginTop: 20,
   	width: '100%',
-    alignItems: 'flex-end'
+    flex: 1,
+    flexDirection: 'row'
   },
   icon: {
     backgroundColor: 'transparent',

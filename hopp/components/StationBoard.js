@@ -72,10 +72,10 @@ export default class StationBoard extends React.Component {
 		that.update();
 		var id1 = setInterval(function(){
 			that.update();
-		}, 20000);
+		}, 10000);
 		var id2 = setInterval(function(){
 			that.setState({ 'updated': Math.floor((new Date() - that.state.lastUpdate)/1000),}, () => {
-				that.setState({'loading': that.state.updated > 30});
+				that.setState({'loading': that.state.updated > 20});
 			});
 		}, 5000);
 		this.setState({'intervalID1': id1, 'intervalID2': id2});
@@ -106,7 +106,8 @@ export default class StationBoard extends React.Component {
 		var style = {
 		  container: {
 		  	backgroundColor: 'rgba(22,24,52,1.0)',
-		  	borderWidth: 3,
+		  	borderWidth: 4,
+		  	borderRadius: 3,
 		  	borderColor: '#fff',
 		  	width: '100%',
 		  	paddingTop: 20,

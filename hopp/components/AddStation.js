@@ -15,6 +15,7 @@ export default class AddStation extends React.Component {
 		super(props);
 		this.state = {
 			'searchValue': '',
+			'maxShow': 50,
 		}
 
 	}
@@ -30,6 +31,9 @@ export default class AddStation extends React.Component {
 	onCancel(){
 		this.props.navigator.pop();
 	}
+	onExpand(){
+		this.setState({'maxShow': this.state.maxShow + 50})
+	}
 	render(){
 		var that = this;
 		var filteredList = stations.filter(function(station){return station.toLowerCase().indexOf(that.state.searchValue.toLowerCase()) !== -1});
@@ -37,10 +41,15 @@ export default class AddStation extends React.Component {
 			<ListItem button key={station} onPress={()=>{that.onSubmit(station)}}>
 				<Text>{station}</Text>
 			</ListItem>
-			)).slice(0,50);
-		if(stationsList.length == 50){
-			var ausgeblendetText = <Text style={{'margin': 10, 'color': '#ccc'}}>Einige Element sind ausgeblendet</Text>
+			)).slice(0,that.state.maxShow);
+		if(stationsList.length >= 50){
+			var showMore = (
+                <Button transparent onPress={that.onExpand.bind(that)}>
+                    <Text>mehr anzeigen</Text>
+                </Button>
+			);
 		}
+
 		return (
 			<Container style={{backgroundColor: '#fff'}}>
 				<InputGroup>
@@ -57,8 +66,8 @@ export default class AddStation extends React.Component {
 				<Content>
 		            <List>
 		                {stationsList}
-		                {ausgeblendetText}
 		            </List>
+		            {showMore}
 	            </Content>
 			</Container>
 		);
