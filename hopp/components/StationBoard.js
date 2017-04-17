@@ -75,9 +75,9 @@ export default class StationBoard extends React.Component {
 		}, 10000);
 		var id2 = setInterval(function(){
 			that.setState({ 'updated': Math.floor((new Date() - that.state.lastUpdate)/1000),}, () => {
-				that.setState({'loading': that.state.updated > 20});
+				that.setState({'loading': that.state.updated > 12});
 			});
-		}, 5000);
+		}, 2000);
 		this.setState({'intervalID1': id1, 'intervalID2': id2});
 	}
 

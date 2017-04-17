@@ -15,6 +15,13 @@ export default class App extends React.Component {
 			{name: 'editStations'},
 			{name: 'addStation'}
 		];
+		const NoBackGestures ={
+			...Navigator.SceneConfigs.FloatFromBottom,
+			gestures: {
+				pop: {},
+			},
+		};
+
 		return (
 			<View style={{flex: 1,'backgroundColor': 'rgba(0, 0, 0, 0.8)'}} >
 				<View style={{flex: 1,'backgroundColor': 'rgba(30, 30, 30, 0.6)'}} />
@@ -29,7 +36,7 @@ export default class App extends React.Component {
 							if(route.name == 'addStation') return <AddStation navigator={navigator}/>;
 						}}
 						configureScene={(route, routeStack) => {
-							return Navigator.SceneConfigs.FloatFromBottom
+							return NoBackGestures;
 						}}
 					/>
 				</View>
