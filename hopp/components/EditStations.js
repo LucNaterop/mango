@@ -41,7 +41,7 @@ export default class EditStations extends React.Component {
 	}
 	render(){
 		var that = this;
-		var myStations = that.state.myStations;
+		var myStations = that.state.myStations.sort((a,b) => {return a.createdAt - b.createdAt});
 		if(myStations[0]){
 			myStations[0].isFirst = true;
 		}

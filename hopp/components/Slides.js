@@ -56,7 +56,8 @@ export default class Slides extends React.Component {
 		});
 	}
 	renderSwiper(){
-		var myStations = this.state.myStations.map(station => <StationSlide station={station} key={station._id} />);
+		var myStations = this.state.myStations.sort((a,b) => {return a.createdAt - b.createdAt})
+		myStations = myStations.map(station => <StationSlide station={station} key={station._id} />);
 		var swiperHeight = Dimensions.get('window').height-90;
 		return (
 			<Swiper 
