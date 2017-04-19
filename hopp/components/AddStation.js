@@ -25,7 +25,7 @@ export default class AddStation extends React.Component {
 		var db = new Datastore({ filename: 'myStations', autoload: true });
 		db.insert({'name': station}, function(err, newDoc){
 			Events.trigger('databaseChanged');
-			setTimeout(() => {that.props.navigator.pop()}, 100)
+			setTimeout(() => {that.props.navigator.pop()}, 10)
 		});
 	}
 	onCancel(){

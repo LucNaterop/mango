@@ -103,7 +103,10 @@ export default class Slides extends React.Component {
 	componentDidMount(){
 		var that = this;
 		Events.on('comingBackToHome', 'slidesListener', () => {
-			that.update();
+			setTimeout(() => {
+				that.update();
+			}, 500);
+			
 		});
 	}
     componentWillUnmount() {
