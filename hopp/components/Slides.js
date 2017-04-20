@@ -33,7 +33,8 @@ export default class Slides extends React.Component {
 		super(props);
 		var that = this;
 		that.state = {
-			'myStations': []
+			'myStations': [],
+			'puppiesCount': 0
 		};
 		var db = new Datastore({ filename: 'myStations', autoload: true });
 		db.find({}, function(error,docs){
@@ -83,6 +84,12 @@ export default class Slides extends React.Component {
 			</View>
 		);
 	}
+	onPuppiesPress(){
+		this.setState({'puppiesCount': this.state.puppiesCount + 1});
+		if(this.state.puppiesCount == 10){
+			// SHOW SOME PUPPIES<
+		}
+	}
 	render(){
 		var that = this;
 		return (
@@ -92,6 +99,8 @@ export default class Slides extends React.Component {
 				</View>
 				<View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', 'backgroundColor': 'rgba(30, 30, 30, 1)', height: 100 }} > 
 					<View style={{flex: 1, flexDirection: 'row', paddingLeft: 10}}>
+						<Icon.Button name="ios-menu" size={40} backgroundColor="transparent" color="rgba(227,66,53,1.0)" onPress={this.onPuppiesPress.bind(this)}>
+						</Icon.Button>
 					</View>
 					<View style={{flex: 1, alignItems: 'flex-end'}}>
 						<Icon.Button name="ios-menu" size={40} backgroundColor="transparent" color="rgba(227,66,53,1.0)" onPress={this.onPressIcon.bind(this)}>
